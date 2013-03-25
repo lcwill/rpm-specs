@@ -1,5 +1,5 @@
 Name: vim
-Version: 7.2
+Version: 7.2.446
 Release: 1
 License: VIM GPL
 Group: Applications/Editors
@@ -9,7 +9,7 @@ Summary: Vim ("Vi IMproved") is a text editor similar to "vi"
 
 Source0: vim-%{version}.tar.gz
 
-BuildRequires: make gcc ncurses-devel
+BuildRequires: make gcc ncurses-devel python-devel perl-devel ruby-devel
 Requires: ncurses python ruby perl
 
 %description
@@ -20,7 +20,7 @@ VIM (VIsual editor iMproved) is an updated and improved version of the vi editor
 
 %build
 rm -rf $RPM_BUILD_ROOT
-./configure --prefix=/usr --enable-perlinterp --enable-rubyinterp --enable-pythoninterp --enable-multibyte --disable-netbeans --enable-gui=no --disable-gpm --disable-gtktest --disable-xim --without-x --with-tlib=ncurses
+./configure --prefix=/usr --enable-perlinterp --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib64/python2.6/config --enable-multibyte --disable-netbeans --enable-gui=no --disable-gpm --disable-gtktest --disable-xim --without-x --with-tlib=ncurses
 make
 
 %install
